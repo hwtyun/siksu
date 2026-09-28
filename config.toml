@@ -14,5 +14,6 @@ toolbarMode = "minimal"
 [server]
 headless = true
 address = "0.0.0.0"
+fileWatcherType = "none"
 enableCORS = false
 enableXsrfProtection = true
