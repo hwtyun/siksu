@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: atec-siksu
+    runtime: python
+    plan: starter
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true
+    disk:
+      name: siksu-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.8"
+      - key: SIKSU_DB_PATH
+        value: /var/data/siksu.db
+      - key: SIKSU_ADMIN_PASSWORD
+        sync: false
